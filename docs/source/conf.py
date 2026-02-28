@@ -130,6 +130,7 @@ extensions = [
     'breathe',
     'sphinx_copybutton',
     'bsk_module_io',
+    'sphinxcontrib.youtube'
 ]
 
 graphviz_output_format = "svg"
