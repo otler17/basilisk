@@ -19,7 +19,7 @@
 #ifndef STOCHASTIC_DRAG_COEFF_H
 #define STOCHASTIC_DRAG_COEFF_H
 
-#include "meanRevertingNoise.h"
+#include "simulation/mujocoDynamics/_GeneralModuleFiles/meanRevertingNoise.h"
 #include "architecture/msgPayloadDefC/DragGeometryMsgPayload.h"
 
 /**
