@@ -19,7 +19,7 @@
 #ifndef STOCHASTIC_ATM_DENSITY_H
 #define STOCHASTIC_ATM_DENSITY_H
 
-#include "meanRevertingNoise.h"
+#include "simulation/mujocoDynamics/_GeneralModuleFiles/meanRevertingNoise.h"
 
 #include "architecture/msgPayloadDefC/AtmoPropsMsgPayload.h"
 
