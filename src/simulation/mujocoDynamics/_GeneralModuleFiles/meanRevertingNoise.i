@@ -16,66 +16,28 @@
  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-%module(directors="1",threads="1") MJMeanRevertingNoise
+%module(directors="1",threads="1",package="Basilisk.simulation") MJMeanRevertingNoise
 
 %include "architecture/utilities/bskException.swg"
 %default_bsk_exception();
 
 %{
-  #include "meanRevertingNoise.h"
-  #include "stochasticAtmDensity.h"
-  #include "stochasticDragCoeff.h"
+  #include "simulation/mujocoDynamics/_GeneralModuleFiles/meanRevertingNoise.h"
 %}
 
 %pythoncode %{
 from Basilisk.architecture.swig_common_model import *
 %}
 
-/* Common SWIG helpers */
 %include "swig_eigen.i"
 %include "std_string.i"
 %include "exception.i"
 
-/* Basilisk system-model base and helpers */
 %import "simulation/mujocoDynamics/_GeneralModuleFiles/StatefulSysModel.i"
 
-/* ============================
-   Base class: MeanRevertingNoise
-   ============================ */
-
-/* Enable directors so Python subclasses can override virtual methods */
 %feature("director") MeanRevertingNoise;
-
-/* Rename the raw SWIG proxy to _MeanRevertingNoise so we can define
- * a Python-side wrapper class named MeanRevertingNoise that also
- * inherits from the Python StatefulSysModel wrapper.
- */
 %rename("_MeanRevertingNoise") MeanRevertingNoise;
-%include "meanRevertingNoise.h"
-
-/* ============================
-   StochasticAtmDensity
-   ============================ */
-
-/* Keep these concrete C++ classes as they are. We do not want them
- * to use the Python StatefulSysModel wrapper, and we still do not
- * expose their writeOutput directly.
- */
-%ignore StochasticAtmDensity::writeOutput;
-%include "stochasticAtmDensity.h"
-
-%include "architecture/msgPayloadDefC/AtmoPropsMsgPayload.h"
-struct AtmoPropsMsgPayload_C;
-
-/* ============================
-   StochasticDragCoeff
-   ============================ */
-
-%ignore StochasticDragCoeff::writeOutput;
-%include "stochasticDragCoeff.h"
-
-%include "architecture/msgPayloadDefC/DragGeometryMsgPayload.h"
-struct DragGeometryMsgPayload_C;
+%include "simulation/mujocoDynamics/_GeneralModuleFiles/meanRevertingNoise.h"
 
 %pythoncode %{
 from Basilisk.architecture.sysModel import SysModelMixin

@@ -67,5 +67,5 @@ Module Assumptions and Limitations
 Verification and Testing
 ------------------------
 The OU process implementation is verified in
-``src/simulation/mujocoDynamics/meanRevertingNoise/_UnitTest/test_meanRevertingNoise.py`` through a subclass usage
+``src/simulation/mujocoDynamics/stochasticAtmDensity/_UnitTest/test_stochasticAtmDensity.py`` through a subclass usage
 path. The test validates empirical mean, variance, and estimated time constant against expected OU statistics.
